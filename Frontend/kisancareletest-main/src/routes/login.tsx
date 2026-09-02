@@ -74,6 +74,8 @@ function AuthPage() {
     setTimeout(() => setIsAnimating(false), flipDuration);
   }, [isAnimating, flipDuration]);
 
+  const [isSuccessTransition, setIsSuccessTransition] = useState(false);
+
   const handleLoginSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoginSubmitted(true);
@@ -84,9 +86,12 @@ function AuthPage() {
     }
     setLoginLoading(true);
     setTimeout(() => {
-      setLoginLoading(false);
-      navigate({ to: "/" });
-    }, 1000);
+      setIsSuccessTransition(true);
+      setTimeout(() => {
+        setLoginLoading(false);
+        navigate({ to: "/dashboard" });
+      }, 400);
+    }, 700);
   };
 
   const handleRegSubmit = async (e: React.FormEvent) => {
@@ -107,9 +112,12 @@ function AuthPage() {
     }
     setRegLoading(true);
     setTimeout(() => {
-      setRegLoading(false);
-      navigate({ to: "/" });
-    }, 1000);
+      setIsSuccessTransition(true);
+      setTimeout(() => {
+        setRegLoading(false);
+        navigate({ to: "/dashboard" });
+      }, 400);
+    }, 700);
   };
 
   const inputClass =
@@ -147,7 +155,9 @@ function AuthPage() {
 
   return (
     <div
-      className="relative w-screen min-h-screen overflow-hidden"
+      className={`relative w-screen min-h-screen overflow-hidden transition-all duration-500 ${
+        isSuccessTransition ? "opacity-0 scale-[1.03] filter blur-[3px]" : "opacity-100 scale-100"
+      }`}
       style={{ margin: 0, padding: 0 }}
     >
       <div
@@ -356,7 +366,15 @@ function AuthPage() {
 
                     <button
                       type="button"
-                      className="w-full h-[56px] rounded-xl font-semibold text-gray-800 bg-[#F7F8F4] hover:brightness-95 active:scale-[0.98] transition flex items-center justify-center gap-3 text-[14px] sm:text-[15px] shadow-sm"
+                      onClick={() => {
+                        setLoginLoading(true);
+                        setIsSuccessTransition(true);
+                        setTimeout(() => {
+                          setLoginLoading(false);
+                          navigate({ to: "/dashboard" });
+                        }, 500);
+                      }}
+                      className="w-full h-[56px] rounded-xl font-semibold text-gray-800 bg-[#F7F8F4] hover:brightness-95 active:scale-[0.98] transition flex items-center justify-center gap-3 text-[14px] sm:text-[15px] shadow-sm cursor-pointer"
                     >
                       <GoogleIcon />
                       Sign in with Google
@@ -613,7 +631,15 @@ function AuthPage() {
 
                     <button
                       type="button"
-                      className="w-full h-[44px] rounded-lg font-semibold text-gray-800 bg-[#F7F8F4] hover:brightness-95 active:scale-[0.98] transition flex items-center justify-center gap-2.5 text-[13px] sm:text-[14px] shadow-sm"
+                      onClick={() => {
+                        setRegLoading(true);
+                        setIsSuccessTransition(true);
+                        setTimeout(() => {
+                          setRegLoading(false);
+                          navigate({ to: "/dashboard" });
+                        }, 500);
+                      }}
+                      className="w-full h-[44px] rounded-lg font-semibold text-gray-800 bg-[#F7F8F4] hover:brightness-95 active:scale-[0.98] transition flex items-center justify-center gap-2.5 text-[13px] sm:text-[14px] shadow-sm cursor-pointer"
                     >
                       <GoogleIcon size={18} />
                       Sign up with Google
