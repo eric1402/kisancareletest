@@ -147,7 +147,7 @@ export default function Sidebar({ mobileOpen = false, onCloseMobile }: SidebarPr
       <aside
         data-lenis-prevent="true"
         onWheel={(e) => e.stopPropagation()}
-        className="hidden lg:flex w-64 shrink-0 h-screen sticky top-0 z-30 overscroll-contain"
+        className="hidden lg:flex w-64 shrink-0 h-dvh sticky top-0 z-30 overscroll-contain"
       >
         {sidebarContent}
       </aside>

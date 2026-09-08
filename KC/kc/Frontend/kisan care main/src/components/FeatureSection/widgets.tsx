@@ -10,7 +10,7 @@ export function WeatherWidget() {
   return (
     <div className="rounded-2xl border border-border bg-card p-5 shadow-soft">
       <p className="text-sm font-semibold text-muted-foreground">Nashik · Next 4 days</p>
-      <ul className="mt-4 grid grid-cols-4 gap-2 text-center">
+      <ul className="mt-4 grid grid-cols-2 gap-2 text-center min-[420px]:grid-cols-4">
         {days.map((day) => (
           <li key={day.d} className="rounded-xl bg-secondary py-3">
             <span aria-hidden="true" className="text-xl">

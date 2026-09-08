@@ -17,40 +17,22 @@ export function SmoothScroll() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const lenis = new Lenis({
-      duration: 1.6,
+      duration: 1.1,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      touchMultiplier: 1.5,
-      wheelMultiplier: 0.8,
+      touchMultiplier: 1.2,
+      wheelMultiplier: 1,
       gestureOrientation: "vertical",
       infinite: false,
-      syncTouch: true,
+      syncTouch: false,
     });
 
-    try {
-      lenis.on("scroll", ScrollTrigger.update);
-
-      ScrollTrigger.scrollerProxy(document.documentElement, {
-        scrollTop: (value) => {
-          if (arguments.length && value !== undefined) {
-            lenis.scrollTo(value, { immediate: true });
-          }
-          return lenis.scroll;
-        },
-        getBoundingClientRect() {
-          return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-        },
-      });
-    } catch (err) {
-      console.warn("ScrollTrigger scrollerProxy error:", err);
-    }
-
-    let rafId = 0;
-    const raf = (time: number) => {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
+    lenis.on("scroll", ScrollTrigger.update);
+    const tick = (time: number) => {
+      lenis.raf(time * 1000);
     };
-    rafId = requestAnimationFrame(raf);
+    gsap.ticker.add(tick);
+    gsap.ticker.lagSmoothing(0);
 
     const onAnchorClick = (e: MouseEvent) => {
       const target = (e.target as HTMLElement).closest('a[href^="#"]') as HTMLAnchorElement | null;
@@ -60,15 +42,19 @@ export function SmoothScroll() {
       const el = document.querySelector(id);
       if (el) {
         e.preventDefault();
-        lenis.scrollTo(el as HTMLElement, { offset: -80, duration: 1.4 });
+        lenis.scrollTo(el as HTMLElement, { offset: -80, duration: 1.2 });
       }
     };
     document.addEventListener("click", onAnchorClick);
 
+    // Re-measure trigger positions once Lenis takes over.
+    ScrollTrigger.refresh();
+
     return () => {
-      cancelAnimationFrame(rafId);
       document.removeEventListener("click", onAnchorClick);
+      gsap.ticker.remove(tick);
       lenis.destroy();
+      ScrollTrigger.refresh();
     };
   }, []);
 

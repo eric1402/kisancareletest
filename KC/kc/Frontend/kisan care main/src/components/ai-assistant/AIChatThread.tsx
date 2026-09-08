@@ -110,9 +110,9 @@ export default function AIChatThread({
         if (msg.sender === "user") {
           return (
             <div key={msg.id} className="flex justify-end w-full">
-              <div className="max-w-[85%] sm:max-w-[70%] bg-[#eaf7ec] border border-[#d4eed8]/70 rounded-2xl rounded-tr-xs px-4 py-2.5 shadow-2xs">
-                <div className="flex items-baseline justify-between gap-4">
-                  <p className="text-sm font-medium text-gray-800 leading-relaxed">
+              <div className="max-w-[85%] sm:max-w-[70%] min-w-0 bg-[#eaf7ec] border border-[#d4eed8]/70 rounded-2xl rounded-tr-xs px-4 py-2.5 shadow-2xs">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <p className="text-sm font-medium text-gray-800 leading-relaxed break-words min-w-0">
                     {msg.text}
                   </p>
                   <div className="shrink-0 flex items-center gap-1 select-none text-[11px] text-gray-500 font-medium">
@@ -127,13 +127,13 @@ export default function AIChatThread({
 
         // Assistant Message
         return (
-          <div key={msg.id} className="flex items-start gap-3 w-full">
+          <div key={msg.id} className="flex items-start gap-3 w-full min-w-0">
             <KisanAIAvatar size="sm" className="mt-1 shrink-0" />
 
-            <div className="flex-1 max-w-[92%] sm:max-w-[85%]">
-              <div className="bg-white border border-gray-200/90 rounded-2xl rounded-tl-xs p-4 sm:p-5 shadow-2xs">
+            <div className="flex-1 min-w-0 max-w-[92%] sm:max-w-[85%]">
+              <div className="bg-white border border-gray-200/90 rounded-2xl rounded-tl-xs p-4 sm:p-5 shadow-2xs min-w-0">
                 {/* Main Text */}
-                <p className="text-sm text-gray-800 leading-relaxed font-normal">
+                <p className="text-sm text-gray-800 leading-relaxed font-normal break-words">
                   {msg.text}
                 </p>
 
@@ -145,9 +145,9 @@ export default function AIChatThread({
                     </p>
                     <ul className="space-y-1 text-sm text-gray-700">
                       {msg.recommendations.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <span className="text-gray-400 select-none">•</span>
-                          <span>{item}</span>
+                        <li key={idx} className="flex items-start gap-2 min-w-0">
+                          <span className="text-gray-400 select-none shrink-0">•</span>
+                          <span className="break-words min-w-0">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -160,11 +160,11 @@ export default function AIChatThread({
                     <div className="w-5 h-5 rounded-md bg-[#eaf7ec] flex items-center justify-center shrink-0 mt-0.5">
                       <Lightbulb className="w-3.5 h-3.5 text-[#2f9e44]" strokeWidth={2.2} />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <h4 className="text-xs font-bold text-gray-900 leading-snug">
                         Why this works?
                       </h4>
-                      <p className="text-xs text-gray-600 mt-0.5 leading-relaxed">
+                      <p className="text-xs text-gray-600 mt-0.5 leading-relaxed break-words">
                         {msg.whyThisWorks}
                       </p>
                     </div>

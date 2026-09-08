@@ -68,7 +68,7 @@ export function CompareDemo() {
         <Reveal delay={160}>
           <div
             ref={frameRef}
-            className="relative mt-12 h-[26rem] w-full overflow-hidden rounded-3xl border border-border bg-secondary/60 shadow-lift select-none sm:h-[24rem]"
+            className="relative mt-12 min-h-[26rem] w-full overflow-hidden rounded-3xl border border-border bg-secondary/60 shadow-lift select-none sm:min-h-[24rem]"
             onPointerDown={(e) => {
               dragging.current = true;
               update(e.clientX);

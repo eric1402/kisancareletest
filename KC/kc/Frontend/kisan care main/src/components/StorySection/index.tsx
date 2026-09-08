@@ -41,7 +41,7 @@ export function StorySection() {
         trigger: root,
         pin: true,
         start: "top top",
-        end: "+=2600",
+        end: () => `+=${Math.round(window.innerHeight * 3)}`,
         scrub: 1,
         anticipatePin: 1,
         invalidateOnRefresh: true,

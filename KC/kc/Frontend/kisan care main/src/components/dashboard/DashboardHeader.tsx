@@ -16,7 +16,7 @@ export default function DashboardHeader({ onToggleMobileSidebar }: DashboardHead
   }
 
   return (
-    <header className="sticky top-0 z-20 flex items-center gap-4 px-6 lg:px-8 py-3.5 bg-white border-b border-kc-border shadow-xs">
+    <header className="sticky top-0 z-20 flex items-center gap-2 sm:gap-4 px-4 sm:px-6 lg:px-8 py-3.5 bg-white border-b border-kc-border shadow-xs">
       {/* Left: Mobile hamburger */}
       <div className="flex items-center shrink-0">
         {onToggleMobileSidebar && (
@@ -45,7 +45,7 @@ export default function DashboardHeader({ onToggleMobileSidebar }: DashboardHead
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search crops, tasks, weather, market prices..."
-            className="w-full h-[44px] pl-10 pr-20 bg-white border border-gray-200 rounded-[11px] text-sm text-gray-800 placeholder:text-gray-400 outline-none transition-all duration-200 focus:border-kc-green focus:ring-2 focus:ring-kc-green/15"
+            className="w-full h-[44px] pl-10 pr-4 sm:pr-20 bg-white border border-gray-200 rounded-[11px] text-sm text-gray-800 placeholder:text-gray-400 outline-none transition-all duration-200 focus:border-kc-green focus:ring-2 focus:ring-kc-green/15"
           />
 
           {/* Keyboard shortcut hint */}
@@ -57,7 +57,7 @@ export default function DashboardHeader({ onToggleMobileSidebar }: DashboardHead
       </form>
 
       {/* Right: Location, Actions, Profile — UNCHANGED */}
-      <div className="flex items-center gap-4 sm:gap-6 shrink-0 ml-auto">
+      <div className="flex items-center gap-2 sm:gap-6 shrink-0 ml-auto">
         {/* Location */}
         <div className="hidden sm:flex items-center gap-1.5 text-kc-muted text-sm font-medium">
           <MapPin className="w-4 h-4 text-kc-green shrink-0" />
@@ -97,7 +97,7 @@ export default function DashboardHeader({ onToggleMobileSidebar }: DashboardHead
             <div className="text-sm font-bold text-kc-text leading-snug">Prathamesh</div>
             <div className="text-xs text-kc-green font-medium leading-none">Premium Farmer</div>
           </div>
-          <ChevronDown className="w-4 h-4 text-kc-muted shrink-0" />
+          <ChevronDown className="w-4 h-4 text-kc-muted shrink-0 hidden min-[400px]:block" />
         </button>
       </div>
     </header>

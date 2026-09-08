@@ -48,7 +48,7 @@ const guideDef: CardDef = {
 function DarkImageCard({ title, description, Icon, image, alt }: { title: string; description: string; Icon: typeof Bot; image: string; alt: string }) {
   const isDisease = alt.toLowerCase().includes("diseased");
   return (
-    <article className="group relative flex h-[285px] flex-col overflow-hidden rounded-[22px] border border-white/[0.06] bg-[#0a1f14] shadow-[0_12px_32px_rgba(16,30,18,0.18),0_2px_8px_rgba(0,0,0,0.12)] isolate transition-[box-shadow,border-color] duration-300 ease-out hover:shadow-[0_16px_36px_rgba(16,30,18,0.22)] hover:border-white/10">
+    <article className="group relative flex min-h-[285px] flex-col overflow-hidden rounded-[22px] border border-white/[0.06] bg-[#0a1f14] shadow-[0_12px_32px_rgba(16,30,18,0.18),0_2px_8px_rgba(0,0,0,0.12)] isolate transition-[box-shadow,border-color] duration-300 ease-out hover:shadow-[0_16px_36px_rgba(16,30,18,0.22)] hover:border-white/10">
       <img
         src={image}
         alt={alt}
@@ -130,7 +130,7 @@ export function FeatureSection() {
         </div>
 
         <div data-feat className="mt-6 opacity-0">
-          <article className="group relative flex min-h-[220px] flex-col overflow-hidden rounded-[22px] border border-white/[0.06] bg-[#0a1f14] shadow-[0_12px_32px_rgba(16,30,18,0.20),0_2px_8px_rgba(0,0,0,0.12)] isolate transition-[box-shadow,border-color] duration-300 ease-out hover:shadow-[0_16px_36px_rgba(16,30,18,0.24)] hover:border-white/10 sm:flex-row sm:h-[220px]">
+          <article className="group relative flex min-h-[220px] flex-col overflow-hidden rounded-[22px] border border-white/[0.06] bg-[#0a1f14] shadow-[0_12px_32px_rgba(16,30,18,0.20),0_2px_8px_rgba(0,0,0,0.12)] isolate transition-[box-shadow,border-color] duration-300 ease-out hover:shadow-[0_16px_36px_rgba(16,30,18,0.24)] hover:border-white/10 sm:flex-row sm:min-h-[220px]">
             <div className="absolute inset-0 hidden sm:block overflow-hidden">
               <img
                 src={featGuide}

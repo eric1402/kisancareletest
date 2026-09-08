@@ -7,7 +7,7 @@ export function TrustSection() {
     <section id="about" className="relative overflow-hidden bg-[#fcfdf8] py-20 sm:py-28">
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f3f7ed] to-white" />
-        <div className="absolute left-1/2 top-[22%] h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-[#9BEA3C]/[0.06] blur-[80px]" />
+        <div className="absolute left-1/2 top-[22%] h-[520px] w-[min(900px,160vw)] -translate-x-1/2 rounded-full bg-[#9BEA3C]/[0.06] blur-[80px]" />
         <div className="absolute right-[8%] top-[40%] h-[320px] w-[320px] rounded-full bg-[#D9A441]/[0.06] blur-[60px]" />
       </div>
 

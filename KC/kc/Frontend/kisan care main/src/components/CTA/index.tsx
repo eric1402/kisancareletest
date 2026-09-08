@@ -79,8 +79,7 @@ export function CTA() {
 
       <section
         id="cta"
-        className="relative overflow-hidden bg-[#032A1B] flex items-center justify-center"
-        style={{ minHeight: "460px" }}
+        className="relative overflow-hidden bg-[#032A1B] flex items-center justify-center min-h-[340px] sm:min-h-[460px]"
       >
         <div aria-hidden className="absolute inset-0 bg-[#032A1B]" />
         <div
@@ -198,7 +197,7 @@ export function CTA() {
           <Reveal delay={180}>
             <Link
               to="/register"
-              className="mt-8 inline-flex h-[56px] w-[190px] items-center justify-center gap-2 rounded-full bg-[#E5B85C] text-[16px] font-semibold text-[#1a2a0a] shadow-[0_8px_24px_rgba(229,184,92,0.32),0_1px_0_rgba(255,255,255,0.2)_inset] transition-all duration-200 hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-[0_12px_32px_rgba(229,184,92,0.4)] active:translate-y-0 active:scale-[0.99]"
+              className="mt-8 inline-flex min-h-[56px] w-auto max-w-full items-center justify-center gap-2 rounded-full bg-[#E5B85C] px-8 py-3 text-center text-[16px] font-semibold text-[#1a2a0a] shadow-[0_8px_24px_rgba(229,184,92,0.32),0_1px_0_rgba(255,255,255,0.2)_inset] transition-all duration-200 hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-[0_12px_32px_rgba(229,184,92,0.4)] active:translate-y-0 active:scale-[0.99]"
             >
               Get Started <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>

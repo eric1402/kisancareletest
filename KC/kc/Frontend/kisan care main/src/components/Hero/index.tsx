@@ -75,8 +75,8 @@ export function Hero() {
         }}
       />
 
-      <div className="relative mx-auto flex w-full max-w-[1280px] flex-col gap-8 px-4 sm:px-6 lg:grid lg:grid-cols-[1.06fr_485px] lg:items-center lg:gap-6 lg:px-6 xl:px-2">
-        <div className="max-w-[640px] pt-2 sm:pt-6 lg:pt-8">
+      <div className="relative mx-auto flex w-full max-w-[1280px] min-w-0 flex-col gap-8 px-4 sm:px-6 lg:grid lg:grid-cols-[minmax(0,1.06fr)_minmax(0,485px)] lg:items-center lg:gap-6 lg:px-6 xl:px-2">
+        <div className="max-w-[640px] min-w-0 pt-2 sm:pt-6 lg:pt-8">
           <p
             data-reveal
             className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#35A853]/25 bg-[#0a2a16]/60 px-3.5 py-1.5 text-[10px] font-semibold tracking-[0.14em] text-[#9BEA3C] backdrop-blur-md will-change-transform sm:px-4 sm:py-2 sm:text-xs"
@@ -154,7 +154,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div data-card className="relative w-full will-change-transform lg:pt-8">
+        <div data-card className="relative w-full min-w-0 will-change-transform lg:pt-8">
           <div
             data-float
             className="relative mx-auto w-full max-w-[485px] rounded-[22px] border border-white/[0.09] bg-[rgba(10,32,18,0.52)] p-3 shadow-[0_20px_60px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.07)] backdrop-blur-[18px] will-change-transform sm:rounded-[26px] sm:p-3.5"
@@ -175,15 +175,15 @@ export function Hero() {
               </span>
             </div>
 
-            <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
+            <div className="grid min-w-0 grid-cols-3 gap-2.5 sm:gap-3">
               <div
                 data-metric
-                className="rounded-[16px] border border-white/[0.07] bg-white/[0.06] p-3 backdrop-blur-md will-change-transform"
+                className="min-w-0 rounded-[16px] border border-white/[0.07] bg-white/[0.06] p-3 backdrop-blur-md will-change-transform"
               >
                 <p className="flex items-center gap-1 text-[11px] font-medium text-white/60">
                   <span className="text-[11px]">⛅</span> Weather
                 </p>
-                <p className="mt-2 text-[20px] font-bold leading-none tracking-[-0.02em] text-white">
+                <p className="mt-2 text-[20px] font-bold leading-none tracking-[-0.02em] break-words text-white">
                   28°C
                 </p>
                 <p className="mt-1.5 text-[11px] font-medium leading-none text-white/65">
@@ -193,12 +193,12 @@ export function Hero() {
 
               <div
                 data-metric
-                className="rounded-[16px] border border-white/[0.06] bg-[rgba(255,255,255,0.07)] p-3 backdrop-blur-md will-change-transform"
+                className="min-w-0 rounded-[16px] border border-white/[0.06] bg-[rgba(255,255,255,0.07)] p-3 backdrop-blur-md will-change-transform"
               >
                 <p className="flex items-center gap-1 text-[11px] font-medium text-white/60">
-                  <Sprout className="h-3 w-3 text-[#9BEA3C]" /> Crop Health
+                  <Sprout className="h-3 w-3 shrink-0 text-[#9BEA3C]" /> Crop Health
                 </p>
-                <p className="mt-2 flex items-center gap-1.5 text-[18px] font-bold leading-none text-white">
+                <p className="mt-2 flex items-center gap-1.5 text-[18px] font-bold leading-none break-words text-white">
                   Good{" "}
                   <span className="h-1.5 w-1.5 rounded-full bg-[#22c55e] shadow-[0_0_6px_rgba(34,197,94,0.6)]" />
                 </p>
@@ -209,12 +209,12 @@ export function Hero() {
 
               <div
                 data-metric
-                className="rounded-[16px] border border-white/[0.07] bg-white/[0.06] p-3 backdrop-blur-md will-change-transform"
+                className="min-w-0 rounded-[16px] border border-white/[0.07] bg-white/[0.06] p-3 backdrop-blur-md will-change-transform"
               >
                 <p className="flex items-center gap-1 text-[11px] font-medium text-white/60">
-                  <TrendingUp className="h-3 w-3 text-[#9BEA3C]" /> Mandi Price
+                  <TrendingUp className="h-3 w-3 shrink-0 text-[#9BEA3C]" /> Mandi Price
                 </p>
-                <p className="mt-2 text-[18px] font-bold leading-none tracking-[-0.02em] text-white">
+                <p className="mt-2 text-[18px] font-bold leading-none tracking-[-0.02em] break-words text-white">
                   ₹2,340
                 </p>
                 <p className="mt-1.5 text-[11px] font-medium leading-none text-white/65">
@@ -260,7 +260,7 @@ export function Hero() {
               <span className="grid h-7 w-7 place-items-center rounded-full bg-gradient-to-br from-sky-400 to-blue-500 text-[14px] shadow-sm">
                 💧
               </span>
-              <span className="whitespace-nowrap text-[13px] font-semibold text-white">
+              <span className="text-left text-[13px] font-semibold leading-snug text-white">
                 Irrigation due in 2 days
               </span>
             </div>

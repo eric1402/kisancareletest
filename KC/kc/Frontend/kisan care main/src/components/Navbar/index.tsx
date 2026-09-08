@@ -51,7 +51,7 @@ export function Navbar() {
       <nav
         aria-label="Main navigation"
         className={cn(
-          "pointer-events-auto relative mx-auto flex h-[58px] max-w-[1280px] items-center justify-between gap-4 rounded-[18px] border px-3 sm:h-[64px] sm:px-5 transition-all duration-500 overflow-hidden will-change-transform",
+          "pointer-events-auto relative mx-auto flex min-h-[58px] w-full max-w-[1280px] min-w-0 items-center justify-between gap-4 rounded-[18px] border px-3 py-1 sm:min-h-[64px] sm:px-5 transition-all duration-500 overflow-hidden will-change-transform",
           isLight
             ? "border-black/[0.07] bg-white/85 shadow-[0_8px_32px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)] backdrop-blur-[16px]"
             : scrolled

@@ -185,7 +185,7 @@ function AIAssistantPage() {
   };
 
   return (
-    <div className="flex h-screen max-h-screen w-full overflow-hidden bg-kc-bg text-kc-text antialiased">
+    <div className="flex h-dvh max-h-dvh w-full min-w-0 overflow-hidden bg-kc-bg text-kc-text antialiased">
       {/* Existing Global Sidebar - UNTOUCHED */}
       <Sidebar
         mobileOpen={mobileMenuOpen}
@@ -193,7 +193,7 @@ function AIAssistantPage() {
       />
 
       {/* Main Content Area - Locked to viewport height */}
-      <div className="flex-1 flex flex-col min-w-0 h-screen max-h-screen overflow-hidden">
+      <div className="flex-1 flex flex-col min-w-0 min-h-0 h-dvh max-h-dvh overflow-hidden">
         {/* Existing Top Header - UNTOUCHED & Fixed */}
         <div className="shrink-0">
           <DashboardHeader
@@ -202,7 +202,7 @@ function AIAssistantPage() {
         </div>
 
         {/* Viewport content area */}
-        <main className="flex-1 min-h-0 overflow-hidden p-4 sm:p-5 lg:p-6 max-w-[1600px] w-full mx-auto flex flex-col">
+        <main className="flex-1 min-h-0 min-w-0 overflow-hidden p-4 sm:p-5 lg:p-6 max-w-[1600px] w-full mx-auto flex flex-col">
           {/* Main Page Header - Fixed */}
           <div className="shrink-0 mb-3 sm:mb-4 flex flex-col gap-0.5">
             <div className="flex items-center gap-2.5">
@@ -219,7 +219,7 @@ function AIAssistantPage() {
           </div>
 
           {/* Two-Column Layout — Chat is wider now (9 cols), right sidebar narrower (3 cols) */}
-          <div className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 lg:gap-5 items-stretch">
+          <div className="flex-1 min-h-0 min-w-0 grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 lg:gap-5 items-stretch overflow-y-auto lg:overflow-hidden custom-scrollbar">
             {/* Left Column: AI Chat — wider for more conversation space */}
             <div className="lg:col-span-9 flex flex-col h-full min-h-0">
               <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-4 sm:p-5 flex flex-col h-full min-h-0">
@@ -254,7 +254,7 @@ function AIAssistantPage() {
             </div>
 
             {/* Right Column: Quick Actions → Recent Conversations → AI Usage */}
-            <div className="lg:col-span-3 flex flex-col h-full min-h-0 gap-2 overflow-hidden">
+            <div className="lg:col-span-3 flex flex-col h-full min-h-0 min-w-0 gap-2 overflow-y-auto lg:overscroll-contain custom-scrollbar">
               {/* 1. Quick Actions — top */}
               <div className="shrink-0">
                 <QuickActionsCard onSelectAction={handleSelectQuickAction} />

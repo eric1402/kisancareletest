@@ -45,7 +45,7 @@ export function Logo({ className, tone, variant, size = "md", markOnly = false }
       </span>
 
       {!markOnly && (
-        <span className="flex min-w-0 flex-col leading-none">
+        <span className="flex min-w-0 max-w-full flex-col overflow-hidden leading-none">
           <span
             className={cn(
               "font-display whitespace-nowrap",
@@ -59,7 +59,7 @@ export function Logo({ className, tone, variant, size = "md", markOnly = false }
           </span>
           <span
             className={cn(
-              "mt-1 font-medium tracking-[0.24em] uppercase",
+              "mt-1 truncate font-medium tracking-[0.24em] uppercase",
               s.tag,
               light ? "text-forest-foreground/55" : "text-muted-foreground",
             )}

@@ -134,7 +134,7 @@ export default function AIChatInput({ onSendMessage, disabled = false }: AIChatI
       </div>
 
       {/* 3 Premium Action Tool Buttons */}
-      <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         {/* Hidden File Input */}
         <input
           ref={fileInputRef}
