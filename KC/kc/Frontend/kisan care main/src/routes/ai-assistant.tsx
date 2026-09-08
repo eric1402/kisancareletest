@@ -192,8 +192,8 @@ function AIAssistantPage() {
         onCloseMobile={() => setMobileMenuOpen(false)}
       />
 
-      {/* Main Content Area - Locked to viewport height */}
-      <div className="flex-1 flex flex-col min-w-0 min-h-0 h-dvh max-h-dvh overflow-hidden">
+      {/* Main Content Area - ChatGPT-like shell */}
+      <div className="flex flex-1 min-w-0 flex-col min-h-0 h-dvh max-h-dvh overflow-hidden">
         {/* Existing Top Header - UNTOUCHED & Fixed */}
         <div className="shrink-0">
           <DashboardHeader
@@ -202,39 +202,37 @@ function AIAssistantPage() {
         </div>
 
         {/* Viewport content area */}
-        <main className="flex-1 min-h-0 min-w-0 overflow-hidden p-4 sm:p-5 lg:p-6 max-w-[1600px] w-full mx-auto flex flex-col">
-          {/* Main Page Header - Fixed */}
-          <div className="shrink-0 mb-3 sm:mb-4 flex flex-col gap-0.5">
-            <div className="flex items-center gap-2.5">
-              <div className="flex items-center justify-center text-[#2f9e44]">
+        <main className="flex w-full max-w-[1600px] mx-auto min-w-0 flex-1 min-h-0 overflow-hidden flex-col p-3 min-[360px]:p-4 sm:p-5 lg:p-6">
+          {/* Main Page Header */}
+          <div className="shrink-0 mb-3 sm:mb-4 flex flex-col gap-0.5 min-w-0 w-full">
+            <div className="flex items-center gap-2.5 min-w-0">
+              <div className="flex items-center justify-center text-[#2f9e44] shrink-0">
                 <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-[#2f9e44] fill-[#2f9e44]/20" strokeWidth={2.2} />
               </div>
-              <h1 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight">
+              <h1 className="text-lg min-[360px]:text-xl sm:text-2xl font-bold text-gray-900 tracking-tight truncate">
                 AI Kisan Assistant
               </h1>
             </div>
-            <p className="text-xs sm:text-sm text-gray-500 font-medium">
+            <p className="text-xs sm:text-sm text-gray-500 font-medium break-words">
               Your smart farming companion. Ask anything about crops, weather, soil, diseases and more.
             </p>
           </div>
 
-          {/* Two-Column Layout — Chat is wider now (9 cols), right sidebar narrower (3 cols) */}
-          <div className="flex-1 min-h-0 min-w-0 grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 lg:gap-5 items-stretch overflow-y-auto lg:overflow-hidden custom-scrollbar">
-            {/* Left Column: AI Chat — wider for more conversation space */}
-            <div className="lg:col-span-9 flex flex-col h-full min-h-0">
-              <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xs p-4 sm:p-5 flex flex-col h-full min-h-0">
-                {/* Top Section: Greeting and 4 Suggestion Cards (Fixed) */}
-                <div className="shrink-0 pb-3">
+          {/* Layout: Desktop = [CHAT 9 | SIDEBAR 3] | Mobile = ChatGPT-style [CHAT full-width] (sidebar hidden) */}
+          <div className="flex w-full min-w-0 flex-1 min-h-0 gap-4 sm:gap-5 lg:grid lg:grid-cols-12 lg:gap-5 lg:items-stretch overflow-hidden">
+            {/* Left Column: AI Chat — ChatGPT interface on mobile */}
+            <div className="flex w-full min-w-0 flex-1 min-h-0 flex-col lg:col-span-9 lg:h-full">
+              <div className="flex w-full min-w-0 flex-1 min-h-0 flex-col bg-white rounded-2xl border border-gray-200/80 shadow-xs p-3 min-[360px]:p-4 sm:p-5 overflow-hidden">
+                {/* Top Section: ultra-compact */}
+                <div className="shrink-0 pb-1.5 min-w-0">
                   <AIWelcomeHeader onSelectSuggestion={handleSendMessage} />
                 </div>
 
-                {/* Conversation Area - THE INTERNAL SCROLLABLE REGION */}
-                {/* data-lenis-prevent stops the Lenis smooth-scroll library from
-                    hijacking wheel events so the div scrolls naturally on its own */}
+                {/* Conversation Area — ChatGPT style: flex-1 internal scroll only */}
                 <div
                   data-lenis-prevent="true"
                   onWheel={(e) => e.stopPropagation()}
-                  className="flex-1 min-h-0 overflow-y-auto custom-scrollbar border-t border-gray-100 py-3 sm:py-4 pr-1 sm:pr-2 overscroll-contain"
+                  className="flex-1 min-h-0 w-full min-w-0 overflow-y-auto custom-scrollbar border-t border-gray-100 py-2 sm:py-3 pr-1 sm:pr-2 overscroll-contain"
                 >
                   <AIChatThread
                     messages={messages}
@@ -243,8 +241,8 @@ function AIAssistantPage() {
                   />
                 </div>
 
-                {/* Bottom Section: Input Area (Fixed at bottom) */}
-                <div className="shrink-0 pt-3 border-t border-gray-100">
+                {/* Bottom Section: Input Area — fixed like ChatGPT */}
+                <div className="shrink-0 pt-3 border-t border-gray-100 w-full min-w-0">
                   <AIChatInput
                     onSendMessage={handleSendMessage}
                     disabled={isThinking}
@@ -253,20 +251,20 @@ function AIAssistantPage() {
               </div>
             </div>
 
-            {/* Right Column: Quick Actions → Recent Conversations → AI Usage */}
-            <div className="lg:col-span-3 flex flex-col h-full min-h-0 min-w-0 gap-2 overflow-y-auto lg:overscroll-contain custom-scrollbar">
-              {/* 1. Quick Actions — top */}
-              <div className="shrink-0">
+            {/* Right Column: Hidden on mobile (ChatGPT-like), visible on desktop */}
+            <div className="hidden lg:flex w-full min-w-0 flex-col gap-2 lg:col-span-3 lg:min-h-0 lg:h-full lg:overflow-y-auto lg:overscroll-contain lg:custom-scrollbar">
+              {/* 1. Quick Actions */}
+              <div className="shrink-0 w-full min-w-0">
                 <QuickActionsCard onSelectAction={handleSelectQuickAction} />
               </div>
 
-              {/* 2. Recent Conversations — middle */}
-              <div className="shrink-0">
+              {/* 2. Recent Conversations */}
+              <div className="shrink-0 w-full min-w-0">
                 <RecentConversationsCard onSelectConversation={handleSelectRecent} />
               </div>
 
-              {/* 3. AI Usage — bottom, kept exactly as-is */}
-              <div className="shrink-0">
+              {/* 3. AI Usage */}
+              <div className="shrink-0 w-full min-w-0">
                 <AIUsageCard />
               </div>
             </div>

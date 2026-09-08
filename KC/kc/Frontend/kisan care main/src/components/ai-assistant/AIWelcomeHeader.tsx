@@ -44,21 +44,21 @@ const suggestions = [
 export default function AIWelcomeHeader({ onSelectSuggestion }: AIWelcomeHeaderProps) {
   return (
     <div className="w-full">
-      {/* Greeting and Robot Avatar */}
-      <div className="flex items-center gap-4">
-        <KisanAIAvatar size="lg" showSproutAnimation />
-        <div>
-          <h2 className="text-lg sm:text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
+      {/* Greeting — ultra-compact so conversation gets max height */}
+      <div className="flex items-center gap-2.5">
+        <KisanAIAvatar size="sm" showSproutAnimation />
+        <div className="min-w-0">
+          <h2 className="text-[14px] sm:text-[15px] font-bold text-gray-900 tracking-tight flex items-center gap-1 truncate">
             Hello Prathamesh! <span className="inline-block animate-wave origin-bottom-right">👋</span>
           </h2>
-          <p className="text-sm text-gray-500 font-medium mt-0.5">
+          <p className="text-[11px] sm:text-xs text-gray-500 font-medium leading-none mt-0.5 truncate">
             How can I help you with your farming today?
           </p>
         </div>
       </div>
 
-      {/* 4 Horizontal Suggestion Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-6">
+      {/* 4 Suggestion Cards — ultra-compact */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-2 mt-2.5">
         {suggestions.map((item) => {
           const IconComponent = item.icon;
           return (
@@ -66,12 +66,12 @@ export default function AIWelcomeHeader({ onSelectSuggestion }: AIWelcomeHeaderP
               key={item.id}
               type="button"
               onClick={() => onSelectSuggestion?.(item.question)}
-              className="group flex flex-col items-center justify-center p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-gray-200/80 hover:border-[#2f9e44]/60 hover:bg-[#fbfdfb] hover:shadow-xs transition-all duration-200 text-center cursor-pointer active:scale-[0.98]"
+              className="group flex flex-col items-center justify-center p-2 sm:p-2.5 rounded-xl bg-white border border-gray-200/80 hover:border-[#2f9e44]/60 hover:bg-[#fbfdfb] hover:shadow-xs transition-all duration-200 text-center cursor-pointer active:scale-[0.98]"
             >
-              <div className="mb-2.5 flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
-                <IconComponent className={`w-5 h-5 sm:w-6 sm:h-6 ${item.iconColor}`} strokeWidth={1.9} />
+              <div className="mb-1 flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
+                <IconComponent className={`w-4 h-4 sm:w-[18px] sm:h-[18px] ${item.iconColor}`} strokeWidth={1.9} />
               </div>
-              <span className="text-xs sm:text-[13px] font-medium text-gray-700 leading-snug whitespace-pre-line group-hover:text-gray-900">
+              <span className="text-[10px] sm:text-[11px] font-medium text-gray-700 leading-tight whitespace-pre-line group-hover:text-gray-900">
                 {item.title}
               </span>
             </button>
