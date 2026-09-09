@@ -32,10 +32,20 @@ Farmers currently juggle multiple apps and websites for weather, mandi prices, s
 
 ```bash
 git clone https://github.com/eric1402/kisancareletest.git
-cd kisancareletest/Frontend/kisancareletest-main
+cd "kisancareletest/KC/kc/Frontend/kisan care main"
 npm install
 npm run dev
 ```
+
+## Routes
+
+| Route | Page |
+|-------|------|
+| `/` | Landing page (cinematic intro, features, AI section) |
+| `/login` | Login / Register (flip-card auth) |
+| `/dashboard` | Farmer dashboard (weather, crops, mandi, tasks) |
+| `/ai-assistant` | AI Kisan Assistant (chat + quick actions) |
+| `/calendar` | Crop Calendar (sowing/growing/harvest guidance) |
 
 ## Scripts
 
@@ -62,14 +72,16 @@ src/
 
 ## Development Status
 
-- [x] Landing page with cinematic intro
-- [x] Responsive design (360px - 1920px)
+- [x] Landing page with cinematic intro + buttery Lenis smooth scroll
+- [x] Login / Register pages
+- [x] Dashboard (weather, crop health, mandi prices, tasks, AI tips)
+- [x] AI Kisan Assistant (chat, quick actions, usage tracking)
+- [x] Crop Calendar page
+- [x] Responsive + zoom-safe layout (320px - 1920px, 50% - 200% zoom)
 - [x] GSAP scroll animations
-- [x] All section components
-- [ ] Dashboard and app modules
 - [ ] Supabase integration
 - [ ] Real-time API connections
-- [ ] AI chatbot and vision
+- [ ] AI chatbot backend and vision
 
 ## License
 
