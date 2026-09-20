@@ -12,7 +12,7 @@ const actions = [
 
 export default function QuickActionsCard() {
   return (
-    <div className="bg-white rounded-2xl border border-kc-border p-5 shadow-xs flex flex-col justify-between card-3d-hover">
+    <div className="bg-white rounded-2xl border border-kc-border p-4 sm:p-5 shadow-xs flex flex-col justify-between card-3d-hover">
       {/* Header */}
       <span className="font-bold text-sm text-kc-text block mb-3">
         Quick Actions

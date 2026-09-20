@@ -34,7 +34,7 @@ const prices = [
 
 export default function MarketPricesCard() {
   return (
-    <div className="bg-white rounded-2xl border border-kc-border p-5 shadow-xs flex flex-col justify-between card-3d-hover">
+    <div className="bg-white rounded-2xl border border-kc-border p-4 sm:p-5 shadow-xs flex flex-col justify-between card-3d-hover">
       {/* Header */}
       <div className="flex items-center justify-between mb-3">
         <span className="font-bold text-sm text-kc-text">
@@ -49,8 +49,8 @@ export default function MarketPricesCard() {
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto">
-        <table className="w-full text-left border-collapse">
+      <div className="overflow-x-auto scrollbar-none -mx-1 px-1">
+        <table className="w-full min-w-[280px] text-left border-collapse">
           <thead>
             <tr className="text-[11px] text-kc-muted font-normal border-b border-gray-100">
               <th className="pb-2 font-medium">Crop</th>

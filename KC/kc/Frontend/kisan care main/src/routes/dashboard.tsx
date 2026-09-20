@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { PageLoader } from "@/components/PageLoader";
 import Sidebar from "@/components/dashboard/Sidebar";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
+import MobileTabBar from "@/components/dashboard/MobileTabBar";
 import GreetingBanner from "@/components/dashboard/GreetingBanner";
 import StatCardsRow from "@/components/dashboard/StatCardsRow";
 import WeatherCard from "@/components/dashboard/WeatherCard";
@@ -38,18 +39,16 @@ function DashboardPage() {
   return (
     <div className="flex min-h-screen bg-kc-bg text-kc-text antialiased">
       {/* Sidebar Navigation */}
-      <Sidebar
-        mobileOpen={mobileMenuOpen}
-        onCloseMobile={() => setMobileMenuOpen(false)}
-      />
+      <Sidebar />
+
+      {/* Mobile Tab Bar */}
+      <MobileTabBar />
 
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col min-w-0 overflow-x-hidden">
-        <DashboardHeader
-          onToggleMobileSidebar={() => setMobileMenuOpen((prev) => !prev)}
-        />
+        <DashboardHeader />
 
-        <main className="flex-1 p-4 sm:p-6 lg:p-7 space-y-5 sm:space-y-6 max-w-[1600px] w-full mx-auto">
+        <main className="flex-1 p-4 sm:p-6 lg:p-7 space-y-5 sm:space-y-6 max-w-[1600px] w-full mx-auto pb-20 lg:pb-7">
           {isLoading ? (
             <PageLoader message="Loading your farm dashboard..." />
           ) : (

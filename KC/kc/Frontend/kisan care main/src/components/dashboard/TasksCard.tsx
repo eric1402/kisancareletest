@@ -61,7 +61,7 @@ const tasks = [
 
 export default function TasksCard() {
   return (
-    <div className="bg-white rounded-2xl border border-kc-border p-5 shadow-xs flex flex-col justify-between card-3d-hover">
+    <div className="bg-white rounded-2xl border border-kc-border p-4 sm:p-5 shadow-xs flex flex-col justify-between card-3d-hover">
       {/* Card Header */}
       <div className="flex items-center justify-between mb-3">
         <span className="font-bold text-sm text-kc-text">Upcoming Tasks</span>

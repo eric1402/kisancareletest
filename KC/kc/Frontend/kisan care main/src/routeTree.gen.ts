@@ -12,9 +12,12 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AiAssistantRouteImport } from './routes/ai-assistant'
 import { Route as CalendarRouteImport } from './routes/calendar'
+import { Route as CommunityRouteImport } from './routes/community'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as MandiRouteImport } from './routes/mandi'
 import { Route as RegisterRouteImport } from './routes/register'
+import { Route as SoilRouteImport } from './routes/soil'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -31,6 +34,11 @@ const CalendarRoute = CalendarRouteImport.update({
   path: '/calendar',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CommunityRoute = CommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -41,9 +49,19 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MandiRoute = MandiRouteImport.update({
+  id: '/mandi',
+  path: '/mandi',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
   path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SoilRoute = SoilRouteImport.update({
+  id: '/soil',
+  path: '/soil',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -51,51 +69,82 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/ai-assistant': typeof AiAssistantRoute
   '/calendar': typeof CalendarRoute
+  '/community': typeof CommunityRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
+  '/mandi': typeof MandiRoute
   '/register': typeof RegisterRoute
+  '/soil': typeof SoilRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/ai-assistant': typeof AiAssistantRoute
   '/calendar': typeof CalendarRoute
+  '/community': typeof CommunityRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
+  '/mandi': typeof MandiRoute
   '/register': typeof RegisterRoute
+  '/soil': typeof SoilRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/ai-assistant': typeof AiAssistantRoute
   '/calendar': typeof CalendarRoute
+  '/community': typeof CommunityRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
+  '/mandi': typeof MandiRoute
   '/register': typeof RegisterRoute
+  '/soil': typeof SoilRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/ai-assistant' | '/calendar' | '/dashboard' | '/login' | '/register'
+    | '/'
+    | '/ai-assistant'
+    | '/calendar'
+    | '/community'
+    | '/dashboard'
+    | '/login'
+    | '/mandi'
+    | '/register'
+    | '/soil'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/ai-assistant' | '/calendar' | '/dashboard' | '/login' | '/register'
+    | '/'
+    | '/ai-assistant'
+    | '/calendar'
+    | '/community'
+    | '/dashboard'
+    | '/login'
+    | '/mandi'
+    | '/register'
+    | '/soil'
   id:
     | '__root__'
     | '/'
     | '/ai-assistant'
     | '/calendar'
+    | '/community'
     | '/dashboard'
     | '/login'
+    | '/mandi'
     | '/register'
+    | '/soil'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AiAssistantRoute: typeof AiAssistantRoute
   CalendarRoute: typeof CalendarRoute
+  CommunityRoute: typeof CommunityRoute
   DashboardRoute: typeof DashboardRoute
   LoginRoute: typeof LoginRoute
+  MandiRoute: typeof MandiRoute
   RegisterRoute: typeof RegisterRoute
+  SoilRoute: typeof SoilRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -121,6 +170,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CalendarRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/community': {
+      id: '/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof CommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard': {
       id: '/dashboard'
       path: '/dashboard'
@@ -135,11 +191,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mandi': {
+      id: '/mandi'
+      path: '/mandi'
+      fullPath: '/mandi'
+      preLoaderRoute: typeof MandiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/register': {
       id: '/register'
       path: '/register'
       fullPath: '/register'
       preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/soil': {
+      id: '/soil'
+      path: '/soil'
+      fullPath: '/soil'
+      preLoaderRoute: typeof SoilRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -149,9 +219,12 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AiAssistantRoute: AiAssistantRoute,
   CalendarRoute: CalendarRoute,
+  CommunityRoute: CommunityRoute,
   DashboardRoute: DashboardRoute,
   LoginRoute: LoginRoute,
+  MandiRoute: MandiRoute,
   RegisterRoute: RegisterRoute,
+  SoilRoute: SoilRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

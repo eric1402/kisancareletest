@@ -190,124 +190,130 @@ function WalletIllustration() {
 
 export default function StatCardsRow() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+    <div className="flex overflow-x-auto snap-x snap-mandatory gap-3 -mx-4 px-4 pb-2 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-5 sm:mx-0 sm:px-0 sm:pb-0 scrollbar-none">
       {/* Card 1: Active Crops */}
-      <div className="bg-white rounded-2xl border border-kc-border p-5 shadow-xs flex flex-col justify-between relative overflow-hidden group hover:border-[#bde4c5] card-3d-hover">
+      <div className="bg-white rounded-2xl border border-kc-border p-4 sm:p-5 shadow-xs flex flex-col justify-between relative overflow-hidden group hover:border-[#bde4c5] card-3d-hover snap-start shrink-0 w-[44vw] min-w-[152px] sm:w-auto active:scale-[0.98] transition-transform">
         <div>
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2 mb-2 sm:mb-3">
             <div className="w-6 h-6 rounded-full bg-kc-green-light flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
               <Leaf className="w-3.5 h-3.5 text-kc-green" />
             </div>
-            <span className="text-sm font-medium text-kc-muted">Active Crops</span>
+            <span className="text-xs sm:text-sm font-medium text-kc-muted truncate">Active Crops</span>
           </div>
 
           <div className="flex items-center justify-between">
-            <div className="text-3xl sm:text-[34px] font-bold text-kc-text leading-tight group-hover:text-kc-green transition-colors">
+            <div className="text-2xl sm:text-[34px] font-bold text-kc-text leading-tight group-hover:text-kc-green transition-colors">
               4
             </div>
-            <div className="absolute right-3 top-4 sm:top-3 animate-float-3d">
+            <div className="absolute right-2 sm:right-3 top-3 sm:top-3 scale-80 sm:scale-100 origin-top-right animate-float-3d">
               <SproutIllustration />
             </div>
           </div>
         </div>
 
-        <div className="mt-4 pt-2">
+        <div className="mt-3 sm:mt-4 pt-1 sm:pt-2">
           <Link
             to={"/crops" as any}
-            className="text-xs font-semibold text-kc-green flex items-center gap-1.5 hover:underline group-hover:gap-2 transition-all w-fit"
+            className="text-[11px] sm:text-xs font-semibold text-kc-green flex items-center gap-1 sm:gap-1.5 hover:underline group-hover:gap-2 transition-all w-fit"
           >
-            View My Crops <ArrowRight className="w-3.5 h-3.5" />
+            View Crops <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
           </Link>
         </div>
       </div>
 
       {/* Card 2: Upcoming Tasks */}
-      <div className="bg-white rounded-2xl border border-kc-border p-5 shadow-xs flex flex-col justify-between relative overflow-hidden group hover:border-[#bde4c5] card-3d-hover">
+      <div className="bg-white rounded-2xl border border-kc-border p-4 sm:p-5 shadow-xs flex flex-col justify-between relative overflow-hidden group hover:border-[#bde4c5] card-3d-hover snap-start shrink-0 w-[44vw] min-w-[152px] sm:w-auto active:scale-[0.98] transition-transform">
         <div>
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2 mb-2 sm:mb-3">
             <div className="w-6 h-6 rounded-full bg-kc-green-light flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
               <ClipboardCheck className="w-3.5 h-3.5 text-kc-green" />
             </div>
-            <span className="text-sm font-medium text-kc-muted">Upcoming Tasks</span>
+            <span className="text-xs sm:text-sm font-medium text-kc-muted truncate">Upcoming Tasks</span>
           </div>
 
           <div className="flex items-center justify-between">
-            <div className="text-3xl sm:text-[34px] font-bold text-kc-text leading-tight group-hover:text-kc-green transition-colors">
+            <div className="text-2xl sm:text-[34px] font-bold text-kc-text leading-tight group-hover:text-kc-green transition-colors">
               7
             </div>
-            <div className="absolute right-3 top-4 sm:top-3 animate-float-3d-rev">
+            <div className="absolute right-2 sm:right-3 top-3 sm:top-3 scale-80 sm:scale-100 origin-top-right animate-float-3d-rev">
               <ClipboardIllustration />
             </div>
           </div>
         </div>
 
-        <div className="mt-4 pt-2">
+        <div className="mt-3 sm:mt-4 pt-1 sm:pt-2">
           <Link
             to={"/calendar" as any}
-            className="text-xs font-semibold text-kc-green flex items-center gap-1.5 hover:underline group-hover:gap-2 transition-all w-fit"
+            className="text-[11px] sm:text-xs font-semibold text-kc-green flex items-center gap-1 sm:gap-1.5 hover:underline group-hover:gap-2 transition-all w-fit"
           >
-            View Tasks <ArrowRight className="w-3.5 h-3.5" />
+            View Tasks <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
           </Link>
         </div>
       </div>
 
       {/* Card 3: Soil Health Score */}
-      <div className="bg-white rounded-2xl border border-kc-border p-5 shadow-xs flex flex-col justify-between relative overflow-hidden group hover:border-[#bde4c5] card-3d-hover">
+      <div className="bg-white rounded-2xl border border-kc-border p-4 sm:p-5 shadow-xs flex flex-col justify-between relative overflow-hidden group hover:border-[#bde4c5] card-3d-hover snap-start shrink-0 w-[44vw] min-w-[152px] sm:w-auto active:scale-[0.98] transition-transform">
         <div>
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2 mb-2 sm:mb-3">
             <div className="w-6 h-6 rounded-full bg-kc-green-light flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
               <FlaskConical className="w-3.5 h-3.5 text-kc-green" />
             </div>
-            <span className="text-sm font-medium text-kc-muted">Soil Health Score</span>
+            <span className="text-xs sm:text-sm font-medium text-kc-muted truncate">Soil Health</span>
           </div>
 
           <div className="flex items-center justify-between">
             <div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-3xl sm:text-[34px] font-bold text-kc-text leading-tight group-hover:text-kc-green transition-colors">
+              <div className="flex items-baseline gap-0.5 sm:gap-1">
+                <span className="text-2xl sm:text-[34px] font-bold text-kc-text leading-tight group-hover:text-kc-green transition-colors">
                   82
                 </span>
-                <span className="text-sm font-normal text-kc-muted">/100</span>
+                <span className="text-xs sm:text-sm font-normal text-kc-muted">/100</span>
               </div>
-              <div className="text-sm font-bold text-kc-green mt-1">Good</div>
+              <div className="text-xs sm:text-sm font-bold text-kc-green mt-0.5 sm:mt-1">Good</div>
             </div>
 
-            <div className="absolute right-3 top-4 sm:top-3 group-hover:scale-105 transition-transform">
+            <div className="absolute right-2 sm:right-3 top-3 sm:top-3 scale-80 sm:scale-100 origin-top-right group-hover:scale-105 transition-transform">
               <CircularProgressScore score={82} />
             </div>
           </div>
         </div>
 
-        {/* Empty bottom spacer for height balance matching reference */}
-        <div className="h-4" />
+        <div className="mt-3 sm:mt-4 pt-1 sm:pt-2">
+          <Link
+            to={"/soil" as any}
+            className="text-[11px] sm:text-xs font-semibold text-kc-green flex items-center gap-1 sm:gap-1.5 hover:underline group-hover:gap-2 transition-all w-fit"
+          >
+            Check Soil <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+          </Link>
+        </div>
       </div>
 
       {/* Card 4: Expense This Month */}
-      <div className="bg-white rounded-2xl border border-kc-border p-5 shadow-xs flex flex-col justify-between relative overflow-hidden group hover:border-[#bde4c5] card-3d-hover">
+      <div className="bg-white rounded-2xl border border-kc-border p-4 sm:p-5 shadow-xs flex flex-col justify-between relative overflow-hidden group hover:border-[#bde4c5] card-3d-hover snap-start shrink-0 w-[44vw] min-w-[152px] sm:w-auto active:scale-[0.98] transition-transform">
         <div>
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2 mb-2 sm:mb-3">
             <div className="w-6 h-6 rounded-full bg-kc-green-light flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
               <Wallet className="w-3.5 h-3.5 text-kc-green" />
             </div>
-            <span className="text-sm font-medium text-kc-muted">Expense This Month</span>
+            <span className="text-xs sm:text-sm font-medium text-kc-muted truncate">Expenses</span>
           </div>
 
           <div className="flex items-center justify-between">
-            <div className="text-3xl sm:text-[34px] font-bold text-kc-text leading-tight group-hover:text-kc-green transition-colors">
-              ₹12,450
+            <div className="text-2xl sm:text-[34px] font-bold text-kc-text leading-tight group-hover:text-kc-green transition-colors">
+              ₹12.4k
             </div>
-            <div className="absolute right-3 top-4 sm:top-3 animate-float-3d">
+            <div className="absolute right-2 sm:right-3 top-3 sm:top-3 scale-80 sm:scale-100 origin-top-right animate-float-3d">
               <WalletIllustration />
             </div>
           </div>
         </div>
 
-        <div className="mt-4 pt-2">
+        <div className="mt-3 sm:mt-4 pt-1 sm:pt-2">
           <Link
             to={"/store" as any}
-            className="text-xs font-semibold text-kc-green flex items-center gap-1.5 hover:underline group-hover:gap-2 transition-all w-fit"
+            className="text-[11px] sm:text-xs font-semibold text-kc-green flex items-center gap-1 sm:gap-1.5 hover:underline group-hover:gap-2 transition-all w-fit"
           >
-            View Details <ArrowRight className="w-3.5 h-3.5" />
+            Store Expenses <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
           </Link>
         </div>
       </div>

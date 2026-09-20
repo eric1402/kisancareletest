@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { MapPin, Plus, Bell, ChevronDown, Menu, Search } from "lucide-react";
+import { MapPin, Plus, Bell, ChevronDown, Search } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import kisanMark from "@/assets/kisan-mark.jpg";
 
 interface DashboardHeaderProps {
   onToggleMobileSidebar?: () => void;
@@ -16,18 +18,21 @@ export default function DashboardHeader({ onToggleMobileSidebar }: DashboardHead
   }
 
   return (
-    <header className="sticky top-0 z-20 flex items-center gap-2 sm:gap-4 px-4 sm:px-6 lg:px-8 py-3.5 bg-white border-b border-kc-border shadow-xs">
-      {/* Left: Mobile hamburger */}
-      <div className="flex items-center shrink-0">
-        {onToggleMobileSidebar && (
-          <button
-            onClick={onToggleMobileSidebar}
-            className="lg:hidden p-2 rounded-xl text-kc-muted hover:bg-gray-100 hover:text-kc-text transition"
-            aria-label="Toggle navigation menu"
-          >
-            <Menu className="w-5 h-5" />
-          </button>
-        )}
+    <header className="sticky top-0 z-20 flex items-center gap-2 sm:gap-4 px-3.5 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 bg-white border-b border-kc-border shadow-xs">
+      {/* Mobile Compact Logo */}
+      <div className="flex lg:hidden items-center shrink-0">
+        <Link to="/dashboard" className="flex items-center gap-2 group">
+          <div className="w-8 h-8 rounded-lg overflow-hidden border border-black/5 bg-[#0b1b14] flex items-center justify-center shrink-0 shadow-2xs">
+            <img
+              src={kisanMark}
+              alt="Kisan Care"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <span className="font-bold text-sm text-kc-text hidden min-[440px]:inline tracking-tight">
+            Kisan<span className="text-kc-green">Care</span>
+          </span>
+        </Link>
       </div>
 
       {/* Centre: Search bar */}

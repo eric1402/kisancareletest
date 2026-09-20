@@ -142,32 +142,12 @@ export default function Sidebar({ mobileOpen = false, onCloseMobile }: SidebarPr
   );
 
   return (
-    <>
-      {/* Desktop fixed sidebar */}
-      <aside
-        data-lenis-prevent="true"
-        onWheel={(e) => e.stopPropagation()}
-        className="hidden lg:flex w-64 shrink-0 h-dvh sticky top-0 z-30 overscroll-contain"
-      >
-        {sidebarContent}
-      </aside>
-
-      {/* Mobile Drawer */}
-      {mobileOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden flex">
-          <div
-            className="fixed inset-0 bg-black/40 backdrop-blur-xs transition-opacity"
-            onClick={onCloseMobile}
-          />
-          <div
-            data-lenis-prevent="true"
-            onWheel={(e) => e.stopPropagation()}
-            className="relative w-72 max-w-[85vw] h-full shadow-2xl z-10 animate-in slide-in-from-left duration-200 overscroll-contain"
-          >
-            {sidebarContent}
-          </div>
-        </div>
-      )}
-    </>
+    <aside
+      data-lenis-prevent="true"
+      onWheel={(e) => e.stopPropagation()}
+      className="hidden lg:flex w-64 shrink-0 h-dvh sticky top-0 z-30 overscroll-contain"
+    >
+      {sidebarContent}
+    </aside>
   );
 }

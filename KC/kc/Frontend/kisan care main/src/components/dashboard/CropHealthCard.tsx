@@ -42,9 +42,9 @@ const crops = [
 
 export default function CropHealthCard() {
   return (
-    <div className="bg-white rounded-2xl border border-kc-border p-5 shadow-xs h-full flex flex-col justify-between card-3d-hover">
+    <div className="bg-white rounded-2xl border border-kc-border p-4 sm:p-5 shadow-xs h-full flex flex-col justify-between card-3d-hover">
       {/* Header */}
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-3 sm:mb-4">
         <span className="font-bold text-sm text-kc-text">Crop Health Overview</span>
         <Link
           to={"/crops" as any}
@@ -55,14 +55,14 @@ export default function CropHealthCard() {
       </div>
 
       {/* 4 Crop Items */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
         {crops.map((crop) => (
           <div
             key={crop.name}
-            className="flex flex-col rounded-xl p-1 group hover:bg-gray-50/70 transition-all"
+            className="flex flex-col rounded-xl p-1 group hover:bg-gray-50/70 transition-all active:scale-[0.98]"
           >
             {/* Image */}
-            <div className="rounded-xl overflow-hidden h-28 sm:h-30 w-full mb-2.5 bg-gray-100 shadow-2xs">
+            <div className="rounded-xl overflow-hidden h-24 sm:h-30 w-full mb-2 bg-gray-100 shadow-2xs">
               <img
                 src={crop.image}
                 alt={crop.name}

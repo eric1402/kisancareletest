@@ -46,7 +46,7 @@ const forecast = [
 
 export default function WeatherCard() {
   return (
-    <div className="bg-white rounded-2xl border border-kc-border p-5 shadow-xs flex flex-col justify-between card-3d-hover">
+    <div className="bg-white rounded-2xl border border-kc-border p-4 sm:p-5 shadow-xs flex flex-col justify-between card-3d-hover">
       {/* Header */}
       <div className="flex items-center gap-2 mb-3">
         <div className="w-6 h-6 rounded-full bg-amber-50 flex items-center justify-center">
@@ -59,53 +59,53 @@ export default function WeatherCard() {
       <div className="flex items-center justify-between gap-2 my-1">
         {/* Left: Temp & status */}
         <div className="shrink-0">
-          <div className="text-3xl sm:text-[36px] font-bold text-kc-text leading-tight">
+          <div className="text-2xl sm:text-[36px] font-bold text-kc-text leading-tight">
             28°C
           </div>
           <div className="text-xs font-semibold text-kc-muted mt-0.5">
             Partly Cloudy
           </div>
-          <div className="flex items-center gap-1 text-[11px] text-kc-muted mt-1.5 font-medium">
+          <div className="flex items-center gap-1 text-[11px] text-kc-muted mt-1 font-medium">
             <MapPin className="w-3 h-3 text-kc-green shrink-0" />
-            <span>Pune, Maharashtra</span>
+            <span className="truncate max-w-[100px] sm:max-w-none">Pune, MH</span>
           </div>
         </div>
 
         {/* Center: Sun & Cloud 3D Icon */}
-        <div className="flex justify-center">
+        <div className="flex justify-center scale-90 sm:scale-100">
           <WeatherCenterGraphic />
         </div>
 
         {/* Right: Detailed metrics */}
-        <div className="space-y-1.5 text-right shrink-0">
-          <div className="text-xs text-kc-muted flex items-center justify-end gap-1.5">
+        <div className="space-y-1 sm:space-y-1.5 text-right shrink-0">
+          <div className="text-[11px] sm:text-xs text-kc-muted flex items-center justify-end gap-1.5">
             <span>Humidity</span>
             <span className="font-bold text-kc-text">65%</span>
           </div>
-          <div className="text-xs text-kc-muted flex items-center justify-end gap-1.5">
+          <div className="text-[11px] sm:text-xs text-kc-muted flex items-center justify-end gap-1.5">
             <span>Wind</span>
             <span className="font-bold text-kc-text">12 km/h</span>
           </div>
-          <div className="text-xs text-kc-muted flex items-center justify-end gap-1.5">
-            <span>Rain Chance</span>
+          <div className="text-[11px] sm:text-xs text-kc-muted flex items-center justify-end gap-1.5">
+            <span>Rain</span>
             <span className="font-bold text-kc-text">20%</span>
           </div>
         </div>
       </div>
 
-      {/* 5-Day Forecast Strip */}
-      <div className="grid grid-cols-5 gap-1.5 pt-3.5 mt-2 border-t border-kc-border/80">
+      {/* 5-Day Forecast Strip: horizontally scrollable on mobile */}
+      <div className="flex overflow-x-auto gap-2 pt-3 mt-2 border-t border-kc-border/80 pb-1 scrollbar-none sm:grid sm:grid-cols-5 sm:gap-1.5">
         {forecast.map((item) => {
           const Icon = item.icon;
           return (
             <div
               key={item.day}
-              className={`flex flex-col items-center py-2 px-1 rounded-xl transition-colors ${
+              className={`flex flex-col items-center py-2 px-2.5 sm:px-1 rounded-xl transition-colors shrink-0 min-w-[58px] sm:min-w-0 ${
                 item.active ? "bg-kc-green-light" : "hover:bg-gray-50"
               }`}
             >
               <span
-                className={`text-[11px] font-semibold mb-1 ${
+                className={`text-[10px] sm:text-[11px] font-semibold mb-1 ${
                   item.active ? "text-kc-green" : "text-kc-muted"
                 }`}
               >
@@ -123,7 +123,7 @@ export default function WeatherCard() {
                 }`}
               />
               <span
-                className={`text-[11px] font-semibold ${
+                className={`text-[10px] sm:text-[11px] font-semibold ${
                   item.active ? "text-kc-green" : "text-kc-text"
                 }`}
               >
